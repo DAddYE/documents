@@ -1,0 +1,8 @@
+---
+:orm: minirecord
+:test: none
+:mock: none
+:script: none
+:renderer: slim
+:stylesheet: none
+:namespace: PadrinoWeb

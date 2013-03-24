@@ -1,0 +1,29 @@
+doctype 5
+html lang='en'
+  head
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    meta content='text/html; charset=utf-8' http-equiv='Content-Type'
+    meta name='viewport' content='width=device-width,initial-scale=1'
+    title = @title.present? ? "#{@title} | Padrino Framework" : "Padrino Framework | Ruby"
+    = favicon_tag '/favicon.ico'
+    = stylesheet_link_tag 'application'
+
+  body
+    .header
+      .logo
+        = link_to image_tag('logo.png', alt: 'Padrino Framework'), "/"
+      .menu
+        ul
+          li = link_to 'Code'
+          li = link_to 'Blog'
+          li = link_to 'Guides'
+          li = link_to 'Api'
+          li = link_to 'Contribute'
+          li = link_to 'Why'
+          li = link_to 'Changes'
+          li = link_to 'Team'
+    .container
+      == yield

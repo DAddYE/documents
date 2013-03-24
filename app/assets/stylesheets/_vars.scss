@@ -1,0 +1,15 @@
+@import 'bourbon';
+
+$gw-column: 84px;
+$gw-gutter: 20px;
+
+$black: #000;
+$white: #FFF;
+$light-black: lighten($black, 20%);
+$gray: #BFBFC0;
+$light-gray: lighten($gray, 10%);
+$lighter-gray: lighten($light-gray, 12%);
+$red: #ed1c24;
+
+$font-size: em(15);
+$line-height: em(26);

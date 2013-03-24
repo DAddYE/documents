@@ -1,0 +1,67 @@
+@import '_vars';
+@import 'normalize';
+@import 'highlight';
+
+body {
+  font-family: $helvetica;
+  font-weight: 200;
+  font-size: $font-size;
+  line-height: $line-height;
+  width: grid-width(10);
+  margin: 0 auto;
+  background: url('header.png') repeat-x;
+}
+
+a {
+  color: $red;
+  text-decoration: none;
+  &:hover{color:$black}
+}
+
+h2 {
+  margin-top: 30px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid $gray;
+}
+
+.header, .container {
+  // background: url('1020px-10col-84w-20gut.png') repeat-y;
+}
+
+.header {
+  background-color: $black;
+  box-shadow: -10px 0px 10px -10px $black, 10px 0px 10px -10px $black;
+  @include linear-gradient(bottom, $black, $light-black);
+  @include clearfix;
+  .logo {
+    @include hide-text;
+    width: grid-width(2);
+    float: left;
+  }
+  .menu {
+    font-size: $font-size;
+    width: grid-width(8);
+    color: $white;
+    margin: 195px 0px 0px $gw-gutter;
+    float: left;
+    text-transform: uppercase;
+    a {
+      color: $white;
+      &:hover{color:$light-gray}
+    }
+    ul {
+      margin: 0px;
+      padding: 0px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid $white;
+      @include clearfix;
+      li {
+        list-style-type: none;
+        float: left;
+        margin-left: 50px;
+        // width: grid-width(2);
+        &:first-child{margin-left:0px}
+      }
+    }
+  }
+}
