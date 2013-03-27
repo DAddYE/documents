@@ -3,13 +3,23 @@
 $gw-column: 84px;
 $gw-gutter: 20px;
 
-$black: #000;
 $white: #FFF;
-$light-black: lighten($black, 20%);
-$gray: #BFBFC0;
-$light-gray: lighten($gray, 10%);
-$lighter-gray: lighten($light-gray, 12%);
+$black: #2D2D2D;
+
+$color-alt1: #B6545A;
+$color-alt2: #e13d2b;
+
+$light-black: #393939;
+$lighter-black: lighten($light-black, 10%);
+
+$gray: #91787A;
+$light-gray: lighten($gray, 25%);
+$lighter-gray: lighten($light-gray, 20%);
+
 $red: #ed1c24;
+$light-red: #F31625;
+$lighter-red: #EC323E;
+$dark-red: #CE3B45;
 
 $font-size: em(15);
 $line-height: em(26);

@@ -1,1 +1,7 @@
-== Post.find('padrino-0-10-0-routing-upgrades-rbx-and-jruby-support-and-minor-breaking-changes').html
+- post = Post.find('padrino-0-10-0-routing-upgrades-rbx-and-jruby-support-and-minor-breaking-changes')
+== post.html
+- content_for :sidebar do
+  h3 Guides
+  ul
+    - post.sections.each do |text|
+      li = link_to text

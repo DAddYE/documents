@@ -13,17 +13,21 @@ html lang='en'
 
   body
     .header
-      .logo
-        = link_to image_tag('logo.png', alt: 'Padrino Framework'), "/"
-      .menu
-        ul
-          li = link_to 'Code'
-          li = link_to 'Blog'
-          li = link_to 'Guides'
-          li = link_to 'Api'
-          li = link_to 'Contribute'
-          li = link_to 'Why'
-          li = link_to 'Changes'
-          li = link_to 'Team'
-    .container
-      == yield
+      .container
+        .logo
+          = link_to image_tag('logo-mini.png', alt: 'Padrino Framework'), "/"
+        .menu
+          ul
+            li = link_to 'Code'
+            li = link_to 'Blog'
+            li = link_to 'Guides'
+            li = link_to 'Api'
+            li = link_to 'Contribute'
+            li = link_to 'Why'
+            li = link_to 'Changes'
+            li = link_to 'Team'
+    .main
+      .sidebar
+        .text == yield_content(:sidebar)
+      .container
+        .text == yield
