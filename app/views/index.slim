@@ -4,4 +4,4 @@
   h3 Guides
   ul
     - post.sections.each do |text|
-      li = link_to text
+      li = link_to text, class: (:selected if text=~/guide/i)

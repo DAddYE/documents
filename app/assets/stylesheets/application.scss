@@ -1,6 +1,7 @@
 @import '_vars';
 @import 'normalize';
 @import 'highlight';
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
 
 body {
   font-family: $helvetica;
@@ -10,21 +11,25 @@ body {
   color: $lighter-black;
 }
 
+h1, h2, h3 {
+  font-family: 'Open Sans';
+  font-weight: 400;
+}
+
 a {
   color: $dark-red;
   text-decoration: none;
   &:hover{
     color:$lighter-red;
-    text-shadow: 0px 0px 1px rgba($lighter-red,.5);
     @include transition(all, .3s)
   }
-  &:active{text-shadow:0px 0px 1px $lighter-red}
+  &:active{}
 }
 
 h2 {
   margin-top: 30px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid $gray;
+  padding-bottom: 8px;
+  border-bottom: 1px solid lighten($black, 60%);
 }
 
 .container {
@@ -38,8 +43,8 @@ h2 {
   background: #FFF url(noise.png);
   .container {
     .text {
-      margin-left: grid-width(2) + 20;
-      width: grid-width(8)
+      margin-left: grid-width(2.5) + 20;
+      width: grid-width(7.5)
     }
     width: grid-width(10);
   }
@@ -58,13 +63,12 @@ h2 {
         line-height: em(18);
         li {
           margin: 0px;
-          border-top: 1px solid $light-gray;
+          border-top: 1px solid lighten($black, 75%);
           &:first-child {border:none}
           a {
             display:block;
             padding: 8px 0px;
-            color: $gray;
-            text-shadow: 0px 0px 3px rgba(0,0,0,.1);
+            color: $black;
             @include transition (all 0.15s ease-in-out);
             &:hover{background-color:$lighter-gray}
             &:active{background-color:#FDECED}
@@ -76,42 +80,46 @@ h2 {
 }
 
 .header {
-  background: $gray url(noise.png);
+  background: $lighter-gray url(noise.png);
+  border-bottom: 1px solid lighten($light-gray, 15%);
   .container {
-    // box-shadow: -10px 0px 10px -10px $black, 10px 0px 10px -10px $black;
-    // @include linear-gradient(bottom, darken($red, 10%), $red, darken($red, 10%));
     @include clearfix;
     .logo {
       @include hide-text;
-      width: grid-width(2);
+      width: grid-width(2.5);
       float: left;
       img {
-        width: 170px;
-        height: 40px;
+        width: 186px; // 170px;
+        height: 46px; // 40px;
       }
     }
   }
   .menu {
     font-size: $font-size;
-    width: grid-width(8);
-    color: $white;
+    width: grid-width(7.5);
     margin: 0px 0px 0px $gw-gutter;
     float: left;
     text-transform: uppercase;
     a {
-      color: $white;
-      &:hover{color:$light-gray}
+      color: $gray;
+      padding: 4px 10px;
+      &.selected,
+      &:hover {
+        background-color: $gray;
+        border-radius: 5px;
+        color: $white;
+      }
     }
     ul {
       margin: 0px;
       padding: 0px;
       padding-bottom: 5px;
-      border-bottom: 1px solid $white;
+      border-bottom: 1px solid lighten($light-gray, 10%);
       @include clearfix;
       li {
         list-style-type: none;
         float: left;
-        margin-left: 50px;
+        margin-left: 20px;
         &:first-child{margin-left:0px}
       }
     }

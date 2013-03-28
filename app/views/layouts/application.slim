@@ -15,12 +15,12 @@ html lang='en'
     .header
       .container
         .logo
-          = link_to image_tag('logo-mini.png', alt: 'Padrino Framework'), "/"
+          = link_to image_tag('logo-mini-purple.png', alt: 'Padrino Framework'), "/"
         .menu
           ul
             li = link_to 'Code'
             li = link_to 'Blog'
-            li = link_to 'Guides'
+            li = link_to 'Guides', '#', class: 'selected'
             li = link_to 'Api'
             li = link_to 'Contribute'
             li = link_to 'Why'
