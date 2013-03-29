@@ -4,23 +4,37 @@ class DocumentRender
     '.markdown' => :markdown
   }
 
-  attr_reader :engine, :document
+  attr_reader :engine, :document, :sections
 
   NotFound = Class.new(StandardError)
 
   class Redcarpet::HTMLAlbino < Redcarpet::Render::XHTML
+    Section = Struct.new(:id, :text, :level, :code)
+
     def block_code(code, language)
       DocumentRender.highlight(code, language)
     end
+
+    def sections
+      @_sections ||= []
+    end
+
+    def header(text, level)
+      code = %[<h#{level}>#{text}</h#{level}>]
+      sections.push Section.new(text.parameterize, text, level, code)
+      code
+    end
   end
 
-  def self.engines
-    TYPES.keys.map { |k| k[1..-1] }
-  end
+  class << self
+    def engines
+      TYPES.keys.map { |k| k[1..-1] }
+    end
 
-  def self.highlight(code, language)
-    language = 'ruby' unless Pygments::Lexer.find_by_name(language)
-    Pygments.highlight(code, lexer: language, options:{encoding: 'utf-8'})
+    def highlight(code, language)
+      language = 'ruby' unless Pygments::Lexer.find_by_name(language)
+      Pygments.highlight(code, lexer: language, options:{encoding: 'utf-8'})
+    end
   end
 
   def initialize(document)
@@ -39,6 +53,8 @@ class DocumentRender
         hard_wrap: true, tables: true, fenced_code_blocks: true, autolink: true, strikethrough: true,
         lax_html_blocks: true, space_after_headers: true, no_intra_emphasis: true
       })
-    @_markdown.render(document.source)
+    source    = @_markdown.render(document.source)
+    @sections = @_markdown.renderer.sections
+    source
   end
 end

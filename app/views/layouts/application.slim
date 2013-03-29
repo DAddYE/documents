@@ -27,7 +27,11 @@ html lang='en'
             li = link_to 'Changes'
             li = link_to 'Team'
     .main
-      .sidebar
-        .text == yield_content(:sidebar)
-      .container
-        .text == yield
+      - if sidebar = yield_content(:sidebar)
+        .sidebar
+          .text == yield_content(:sidebar)
+        .container
+          .text == yield
+      - else
+        .intro
+          .container == yield

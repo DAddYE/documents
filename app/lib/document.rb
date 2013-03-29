@@ -1,6 +1,4 @@
 class Document
-  include DocumentPostProcess
-
   BASE_DIR = Padrino.root('docs') unless defined?(BASE_DIR)
   NotFound = Class.new(StandardError)
   Invalid  = Class.new(StandardError)
@@ -40,7 +38,12 @@ class Document
   end
 
   def html
-    @renderer.render
+    @_html ||= @renderer.render
+  end
+
+  def sections
+    html # we need to parse first
+    @renderer.sections.select{|s|s.level==2}
   end
 
   def validate!

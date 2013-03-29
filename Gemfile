@@ -7,7 +7,6 @@ gem 'rake'
 gem 'slim'
 gem 'pygments.rb', require: 'pygments'
 gem 'redcarpet'
-gem 'nokogiri'
 
 group :assets, :development do
   gem 'uglifier'
@@ -21,6 +20,7 @@ group :test do
   gem 'rb-fsevent', require: false
   gem 'guard-minitest'
   gem 'minitest'
+  gem 'nokogiri'
 end
 
 # Living on the Edge, ye yeye

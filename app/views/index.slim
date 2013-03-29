@@ -3,5 +3,5 @@
 - content_for :sidebar do
   h3 Guides
   ul
-    - post.sections.each do |text|
-      li = link_to text, class: (:selected if text=~/guide/i)
+    - post.sections.each do |s|
+      li = link_to s.text, class: (:selected if s.text=~/guide/i)

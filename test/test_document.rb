@@ -52,4 +52,14 @@ class TestDocument < MiniTest::Unit::TestCase
     assert_kind_of Array, post.categories
     assert_kind_of Array, post.tags
   end
+
+  def test_sections
+    doc = Document.find(:sections)
+    2.times do |i|
+      sec = doc.sections[i]
+      assert_equal 2, sec.level
+      assert_equal "section-#{i+1}", sec.id
+      assert_equal "Section #{i+1}", sec.text
+    end
+  end
 end
