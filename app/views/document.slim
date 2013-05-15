@@ -3,4 +3,4 @@
   h3 = sidebar_title 
   ul
     - document.sections.each do |s|
-      li = link_to s.text, "\##{s.id}", class: (:selected if s.text=~/#{sidebar_title}/i)
+      li = link_to s.text, anchor: s.id, class: (:selected if s.text=~/#{sidebar_title}/i)

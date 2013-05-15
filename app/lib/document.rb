@@ -57,10 +57,6 @@ class Document
     File.mtime(file) > mtime
   end
 
-  def others
-    @_others ||= Document.all.reject { |document| document == self }
-  end
-
   def name
     @_name ||= File.basename(@file).gsub(@extname, '')
   end
@@ -89,7 +85,7 @@ class Document
       return File.expand_path(name, BASE_DIR) if !File.directory?(name) && File.exist?(name)
       file = File.join(BASE_DIR, self.class.dir.to_s, name)
       file << '.md' if File.extname(file).empty?
-      raise NotFound, file unless File.exist?(file)
+      raise NotFound.new(file), file unless File.exist?(file)
       file
     end
   end
