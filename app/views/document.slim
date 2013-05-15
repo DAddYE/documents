@@ -1,0 +1,6 @@
+== document.html
+- content_for :sidebar do
+  h3 = sidebar_title 
+  ul
+    - document.sections.each do |s|
+      li = link_to s.text, "\##{s.id}", class: (:selected if s.text=~/#{sidebar_title}/i)

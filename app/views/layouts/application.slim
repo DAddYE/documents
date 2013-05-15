@@ -15,17 +15,17 @@ html lang='en'
     .header
       .container
         .logo
-          = link_to image_tag('logo-mini-purple.png', alt: 'Padrino Framework'), "/"
+          = link_to image_tag('logo-mini-purple.png', alt: 'Padrino Framework'), url_for(:index) 
         .menu
           ul
-            li = link_to 'Code'
-            li = link_to 'Blog'
-            li = link_to 'Guides', '#', class: 'selected'
+            li = link_to 'Code', 'https://github.com/padrino/padrino-framework', target: :_blank 
+            li = link_to 'Blog', url_for(:blog, :index), class: selected?(:blog)
+            li = link_to 'Guides', url_for(:guides, :index), class: selected?(:guides)
             li = link_to 'Api'
-            li = link_to 'Contribute'
-            li = link_to 'Why'
-            li = link_to 'Changes'
-            li = link_to 'Team'
+            li = link_to 'Contribute', url_for(:pages, :contribute), class: selected?(:contribute)
+            li = link_to 'Why', url_for(:pages, :why), class: selected?(:why)
+            li = link_to 'Changes', url_for(:pages, :changes), class: selected?(:changes)
+            li = link_to 'Team', url_for(:pages, :team), class: selected?(:team)
     .main
       - if sidebar = yield_content(:sidebar)
         .sidebar

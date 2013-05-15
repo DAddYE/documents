@@ -18,6 +18,10 @@ class Document
       @_all ||= Dir[File.join(BASE_DIR, dir.to_s, '**/*.{md,markdown}')].map(&Document)
     end
 
+    def last
+      all.last
+    end
+
     def to_proc
       ->(file) { new file }
     end
@@ -51,6 +55,14 @@ class Document
 
   def expired?
     File.mtime(file) > mtime
+  end
+
+  def others
+    @_others ||= Document.all.reject { |document| document == self }
+  end
+
+  def name
+    @_name ||= File.basename(@file).gsub(@extname, '')
   end
 
   def method_missing(*args, &block)

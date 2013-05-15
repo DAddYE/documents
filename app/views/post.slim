@@ -1,0 +1,6 @@
+== post.html
+- content_for :sidebar do
+  h3 = sidebar_title
+  ul
+    - post.others.each do |po|
+      li = link_to po.metadata['title'], url_for(:blog, :post, name: po.name)

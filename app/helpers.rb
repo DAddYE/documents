@@ -36,4 +36,16 @@ PadrinoWeb::App.helpers do
     end
     super(md, options)
   end
+
+  def render_page(file)
+    render :document, locals: {document: Page.find(file), sidebar_title: 'Pages'}
+  end
+
+  def render_post(file)
+    render :document, locals: {document: Page.find(file), sidebar_title: 'Guides'}
+  end
+
+  def selected?(menu_item)
+    @selected == menu_item ? 'selected' : ''
+  end
 end

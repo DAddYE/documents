@@ -11,4 +11,10 @@ class Post < Document
     @categories = metadata_array('categories')
     @date       = metadata_date('date')
   end
+
+  # class << self
+  #   def all
+  #     @_all ||= Dir[File.join(Document::BASE_DIR, 'posts', '**/*.{md,markdown}')].map(&Post)
+  #   end
+  # end
 end

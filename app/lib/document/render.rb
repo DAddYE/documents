@@ -20,7 +20,7 @@ class DocumentRender
     end
 
     def header(text, level)
-      code = %[<h#{level}>#{text}</h#{level}>]
+      code = %[<h#{level} id='#{text.parameterize}'>#{text}</h#{level}>]
       sections.push Section.new(text.parameterize, text, level, code)
       code
     end

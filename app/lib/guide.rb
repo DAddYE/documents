@@ -1,0 +1,2 @@
+class Guide < Document
+end
